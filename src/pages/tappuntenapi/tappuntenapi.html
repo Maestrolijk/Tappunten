@@ -1,0 +1,38 @@
+<!--
+  Generated template for the TappuntenapiPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>tappuntenapi</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+  <button ion-button (click)="spoelTapPunt()">GetData </button>
+  
+
+  <ion-list>
+
+      <ion-item *ngFor="let tapje of tappunten">
+          
+          
+          <h2>
+              {{tapje.tapPuntId}} {{tapje.functie}}
+          </h2>
+          <br/>
+          <p>{{tapje.ruimte}}</p>
+          <br/>
+          <ion-note>
+              {{tapje.omschrijving}}
+          </ion-note>
+      </ion-item>
+
+  </ion-list>
+
+</ion-content>

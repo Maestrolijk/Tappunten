@@ -1,0 +1,16 @@
+<ion-content padding (click)="doClose()">
+
+  <ion-card>
+    <ion-card-content>
+      <ion-card-title>
+        {{tappuntDetail.afdeling}} - {{tappuntDetail.ruimte}}
+      </ion-card-title>
+      <p>{{tappuntDetail.functie}}</p>
+      <p>{{tappuntDetail.omschrijving}}</p>
+      
+      <!-- <img src="data:image/jpg;base64,{{myParam.afbeelding}} | safeHtml"> -->
+      <img src="assets/imgs/tappunt-foto-detail.jpg">
+      <p>{{tappuntDetail.opmerkingen}}</p>
+    </ion-card-content>
+  </ion-card>
+</ion-content>

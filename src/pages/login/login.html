@@ -1,0 +1,15 @@
+<ion-content padding text-center>
+  <div class="wrapper" text-center>
+  <img src="./assets/imgs/logodz.png">
+  <h1>Tappunten</h1>
+  <ion-list>
+    <form (ngSubmit)="doLoadHomePage()" novalidate>
+      <ion-item>
+        <!-- <ion-icon item-start name="water"></ion-icon> -->
+        <ion-input name="username" [(ngModel)]="username" placeholder="Gebruikersnaam" ></ion-input> 
+      </ion-item>
+      <button ion-button block type="submit">Inloggen</button>
+    </form>
+  </ion-list>
+</div>
+</ion-content>

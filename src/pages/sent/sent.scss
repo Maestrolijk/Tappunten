@@ -1,0 +1,12 @@
+page-sent {
+    @media screen and (orientation: landscape) {
+        img {
+            padding-top: 5%;
+        }
+    }
+    @media screen and (orientation: portrait) {
+        img {
+            padding-top: 25%;
+        }
+    }
+}
