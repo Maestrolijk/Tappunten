@@ -107,6 +107,7 @@ export class HomePage {
         this.expandAction(item, 'notappunt', 'Dit tappunt bestaat niet of is al gecontroleerd.');
       }
       else {
+      this.tp.setTapPuntGespoeld(item.autoID);
       this.tappunten = this.tappunten.filter(i => i.tappuntId != this.scannedData.text);
       this.tappuntenFiltered = differenceWith(this.tappuntenOriginal, this.tappunten);
       this.expandAction(item, 'checked', 'Tappunt is gecontroleerd.');
