@@ -58,11 +58,6 @@ export class HomePage {
     return this.weekNumber = moment(this.weekNumber).week();
   }
 
-  // open the sent page, this function is not needed anymore and at the moment not called by anything
-  doSentPage() {
-    this.navCtrl.setRoot(SentPage);
-  }
-
   // show a new page with the tappunten that are already checked
   doCheckedPage(){
     this.navCtrl.push(GecontroleerdPage, {'tappuntenGecontroleerd': this.tappuntenFiltered});
@@ -95,7 +90,6 @@ export class HomePage {
   }
 
   // scan the tappunt, filter the TO-DO list and set tappunt as checked
-  // TO-DO: the filter should be replaced by an update statement in the database and a new get to refresh the list
   scan(item) {
     this.options = {
       prompt: 'Scan het tappunt'
