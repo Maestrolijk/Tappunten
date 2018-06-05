@@ -4,6 +4,9 @@
   <h1>Tappunten</h1>
   <ion-list>
     <form (ngSubmit)="doLoadHomePage()" novalidate>
+      <div *ngIf="showMe" class="fail">
+          Gebruiker is niet gemachtigd om in te loggen
+      </div>
       <ion-item>
         <!-- <ion-icon item-start name="water"></ion-icon> -->
         <ion-input name="username" [(ngModel)]="username" placeholder="Gebruikersnaam" ></ion-input> 

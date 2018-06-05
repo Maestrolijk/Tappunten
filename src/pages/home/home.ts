@@ -76,6 +76,7 @@ export class HomePage {
 
   // check the tappunt manually by swiping to the right and check the item
   check(item) {
+    this.tp.setTapPuntGespoeld(item.autoID);
     this.tappunten = this.tappunten.filter(i => i.tapPuntId != item.tapPuntId);
     this.expandAction(item, 'checked', 'Tappunt is gecontroleerd.');
     this.tappuntToDoCount = this.tappuntToDoCount + 1;

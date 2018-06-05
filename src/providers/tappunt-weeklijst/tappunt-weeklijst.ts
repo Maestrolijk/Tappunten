@@ -17,24 +17,43 @@ export class TappuntWeeklijstProvider {
     'Content-Type' :  'text/plain'    
   });
 
+  // check if user is eligable to login
+  userExists(gebruiker: string) {
 
-setTapPuntGespoeld(autoID: number){
-  return new Promise(resolve => { 
-    let url: string = 'http://10.254.3.15/tapPunten/TapApi/weeklijst/del/' + autoID;
-    //let url: string = 'http://dzapontw02.dz.local/tapPunten/TapApi/weeklijst/geurinkj'
-    //let url: string = 'http://localhost:54217/TapApi/weeklijst/del/' + autoID;
-                       
+    return new Promise(resolve => {   
+      let url: string = 'http://10.254.3.15/tapPunten/TapApi/weeklijst/naam/' + gebruiker;
+      //let url: string = 'http://dzapontw02.dz.local/tapPunten/TapApi/weeklijst/naam/geurinkj'
+      //let url: string = 'http://localhost:54217/TapApi/weeklijst/naam/' + gebruiker;
+      //http://localhost:54217/TapApi/weeklijst/naam/geurinkj
 
-    // this.http.get(url,{headers: this.haders})
-    this.http.delete(url,{headers: this.headNoOpt})
-      .subscribe(data => {
-        resolve(data);
-      }, err => {
-        console.log(err);
-      });
-  });
+      this.http.get(url)
+      this.http.get(url)
+        .subscribe(data => {
+          resolve(data);
+        }, err => {
+          console.log(err);
+        });
+    });
+  }
 
-}
+  // set specific tappunt [gespoeld = 1]
+  setTapPuntGespoeld(autoID: number){
+    return new Promise(resolve => { 
+      let url: string = 'http://10.254.3.15/tapPunten/TapApi/weeklijst/del/' + autoID;
+      //let url: string = 'http://dzapontw02.dz.local/tapPunten/TapApi/weeklijst/geurinkj'
+      //let url: string = 'http://localhost:54217/TapApi/weeklijst/del/' + autoID;
+                        
+
+      // this.http.get(url,{headers: this.haders})
+      this.http.delete(url,{headers: this.headNoOpt})
+        .subscribe(data => {
+          resolve(data);
+        }, err => {
+          console.log(err);
+        });
+    });
+
+  }
 
   // get the tappuntenlijst from the database depending on the user that is logged in
   getTapPunten(gebruiker: string) {
