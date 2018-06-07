@@ -1,9 +1,8 @@
 <ion-content padding text-center>
   <div class="wrapper" text-center>
-  <img src="./assets/imgs/logodz.png">
-  <h1>Tappunten</h1>
-  <ion-card class="card">
-    <ion-list>
+    <img src="./assets/imgs/logodz.png">
+    <h1>Tappunten</h1>
+    <ion-card class="card">
       <form (ngSubmit)="doLoadHomePage()" novalidate>
         <div padding *ngIf="showMe" class="fail">
             Gebruiker is niet gemachtigd om in te loggen
@@ -16,14 +15,17 @@
         </div>
         <div padding>
           <button ion-button class="loginbutton" block type="submit">Inloggen</button>
-          <ion-item no-lines text-center class="remember">
-            <ion-label>Onthoud mij</ion-label>
-            <ion-toggle checked class="toggle-light"></ion-toggle>
-          </ion-item>
+          <ion-row>
+            <ion-col col-3></ion-col>
+            <ion-col col-4><ion-label>Onthoud mij</ion-label></ion-col>
+            <ion-col col-3><ion-toggle item-start class="toggle-light" name="remembertoggle" [(ngModel)]="remembertoggle"></ion-toggle></ion-col>
+            <ion-col col-2></ion-col>
+          </ion-row>
         </div>
       </form>
-    </ion-list>
-  </ion-card>
-</div>
-<ion-footer no-lines>Copyright &copy; Deventer Ziekenhuis</ion-footer>
+    </ion-card>
+    <div padding>
+      Copyright &copy; Deventer Ziekenhuis
+    </div>
+  </div>
 </ion-content>

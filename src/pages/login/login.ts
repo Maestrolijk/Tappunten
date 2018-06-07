@@ -14,13 +14,13 @@ import { HomePage } from '../home/home';
 export class LoginPage {
 
   loginForm: FormGroup;
-
   
   username: any;
   loginname: any;
   usereligable: any;
   showMe = false;
-
+  storedname: string;
+  remembertoggle: boolean;
 
   constructor(
     public navCtrl: NavController,
@@ -28,14 +28,11 @@ export class LoginPage {
     public storage: Storage,
     public tp: TappuntWeeklijstProvider,
     formBuilder: FormBuilder) {
-
-      // this.loginForm = formBuilder.group({
-      //   email: [null, [Validators.required, Validators.email]],
-      // });
-
   }
 
-  ionViewDidLoad() {}
+  ionViewDidLoad() {
+    this.getUsername();
+  }
 
   // go to the homepage and push the user that is logged in
   doLoadHomePage() {
@@ -46,6 +43,11 @@ export class LoginPage {
 
         if(this.usereligable === true) {
           this.loginname = this.username;
+
+        // if button is toggled, write the loginname to the localstorage
+        if(this.remembertoggle === true) {
+          this.storage.set(this.storedname, this.username);
+        }
           this.navCtrl.setRoot(HomePage, {'loginname': this.loginname})
         }
         else {
@@ -56,5 +58,11 @@ export class LoginPage {
       , (err) => {
         console.log("Error: ", err);
       })
+  }
+
+  getUsername() {
+    this.storage.get(this.storedname).then((val) => {
+      this.username = val;
+    });
   }
 }
