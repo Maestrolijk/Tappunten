@@ -38,7 +38,10 @@ import { TappuntWeeklijstProvider } from '../providers/tappunt-weeklijst/tappunt
     HttpModule,
     HttpClientModule,
     IonicStorageModule.forRoot(),
-    IonicModule.forRoot(MyApp)
+    IonicModule.forRoot(MyApp, {
+      scrollAssist: false, 
+      autoFocusAssist: false
+    })
   ],
   bootstrap: [IonicApp],
   entryComponents: [

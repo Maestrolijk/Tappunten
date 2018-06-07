@@ -2,17 +2,28 @@
   <div class="wrapper" text-center>
   <img src="./assets/imgs/logodz.png">
   <h1>Tappunten</h1>
-  <ion-list>
-    <form (ngSubmit)="doLoadHomePage()" novalidate>
-      <div *ngIf="showMe" class="fail">
-          Gebruiker is niet gemachtigd om in te loggen
-      </div>
-      <ion-item>
-        <!-- <ion-icon item-start name="water"></ion-icon> -->
-        <ion-input name="username" [(ngModel)]="username" placeholder="Gebruikersnaam" ></ion-input> 
-      </ion-item>
-      <button ion-button block type="submit">Inloggen</button>
-    </form>
-  </ion-list>
+  <ion-card class="card">
+    <ion-list>
+      <form (ngSubmit)="doLoadHomePage()" novalidate>
+        <div padding *ngIf="showMe" class="fail">
+            Gebruiker is niet gemachtigd om in te loggen
+        </div>
+        <div padding>
+          <ion-item class="gegevens">
+            <ion-label> <ion-icon name="person"></ion-icon></ion-label>
+            <ion-input name="username" [(ngModel)]="username" placeholder="Gebruikersnaam"></ion-input> 
+          </ion-item>
+        </div>
+        <div padding>
+          <button ion-button class="loginbutton" block type="submit">Inloggen</button>
+          <ion-item no-lines text-center class="remember">
+            <ion-label>Onthoud mij</ion-label>
+            <ion-toggle checked class="toggle-light"></ion-toggle>
+          </ion-item>
+        </div>
+      </form>
+    </ion-list>
+  </ion-card>
 </div>
+<ion-footer no-lines>Copyright &copy; Deventer Ziekenhuis</ion-footer>
 </ion-content>

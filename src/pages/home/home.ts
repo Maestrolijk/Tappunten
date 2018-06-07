@@ -71,7 +71,7 @@ export class HomePage {
 
   // check the tappunt manually by swiping to the right and check the item
   check(item) {
-    this.tp.setTapPuntGespoeld(item.autoID);
+    this.tp.setTapPuntGespoeld(item.tapPuntId);
     this.tappunten = this.tappunten.filter(i => i.tapPuntId != item.tapPuntId);
     this.expandAction(item, 'checked', 'Tappunt is gecontroleerd.');
     this.tappuntToDoCount = this.tappuntToDoCount + 1;
@@ -101,7 +101,7 @@ export class HomePage {
         this.expandAction(item, 'notappunt', 'Dit tappunt bestaat niet of is al gecontroleerd.');
       }
       else {
-      this.tp.setTapPuntGespoeld(item.autoID);
+      this.tp.setTapPuntGespoeld(item.tapPuntId);
       this.tappunten = this.tappunten.filter(i => i.tappuntId != this.scannedData.text);
       this.tappuntenFiltered = differenceWith(this.tappuntenOriginal, this.tappunten);
       this.expandAction(item, 'checked', 'Tappunt is gecontroleerd.');

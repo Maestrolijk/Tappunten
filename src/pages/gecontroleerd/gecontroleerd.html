@@ -14,17 +14,18 @@
 
 
 <ion-content padding>
-
+  <ion-card>
     <ion-list>
-        <ion-item-sliding detail-none icon-left *ngFor="let tappunt of jsonData">
-          <ion-item (click)="doTappuntDetail(tappunt)">
-            <ion-label>
-              <h4>{{tappunt.afdeling}} - {{tappunt.ruimte}}</h4>
-              <p>{{tappunt.functie}}</p>
-              <p>{{tappunt.omschrijving}}</p>
-            </ion-label>
-          </ion-item> 
-        </ion-item-sliding>
-      </ion-list>
+      <ion-item-sliding detail-none icon-left *ngFor="let tappunt of jsonData; let even = even">
+        <ion-item (click)="doTappuntDetail(tappunt)" [color]="even? 'light' : 'tap'">
+          <ion-label>
+            <h4>{{tappunt.afdeling}} - {{tappunt.ruimte}}</h4>
+            <p>{{tappunt.functie}}</p>
+            <p>{{tappunt.omschrijving}}</p>
+          </ion-label>
+        </ion-item> 
+      </ion-item-sliding>
+    </ion-list>
+  </ion-card>
 
 </ion-content>
