@@ -36,7 +36,6 @@ export class LoginPage {
 
   // go to the homepage and push the user that is logged in
   doLoadHomePage() {
-
     this.tp.userExists(this.username)
       .then(data => { 
         this.usereligable = data;
@@ -47,6 +46,9 @@ export class LoginPage {
         // if button is toggled, write the loginname to the localstorage
         if(this.remembertoggle === true) {
           this.storage.set(this.storedname, this.username);
+        }
+        else {
+          this.storage.set(this.storedname, "");
         }
           this.navCtrl.setRoot(HomePage, {'loginname': this.loginname})
         }
@@ -63,6 +65,9 @@ export class LoginPage {
   getUsername() {
     this.storage.get(this.storedname).then((val) => {
       this.username = val;
+      if(val != "") {
+        this.remembertoggle = true;
+      }
     });
   }
 }
