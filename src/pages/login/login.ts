@@ -13,6 +13,8 @@ import { HomePage } from '../home/home';
 })
 export class LoginPage {
 
+  splash = true;
+
   loginForm: FormGroup;
   
   username: any;
@@ -31,6 +33,9 @@ export class LoginPage {
   }
 
   ionViewDidLoad() {
+    setTimeout(() => {
+      this.splash = false;
+    }, 4000);
     this.getUsername();
   }
 
