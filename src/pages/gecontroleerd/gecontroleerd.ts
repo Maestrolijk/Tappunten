@@ -1,6 +1,8 @@
+// imported plugins
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, ModalController } from 'ionic-angular';
 
+// imported pages
 import { DetailPage } from '../detail/detail';
 
 /**
@@ -17,6 +19,7 @@ import { DetailPage } from '../detail/detail';
 })
 export class GecontroleerdPage {
 
+  // variables
   jsonData :any;
 
   constructor(
@@ -28,9 +31,9 @@ export class GecontroleerdPage {
 
   ionViewDidLoad() {}
 
+  // open the detail page about the tappunt when user clicks on the tappunt
   doTappuntDetail(tappuntData) {    
     let myModal = this.modalCtrl.create(DetailPage, { 'tappuntenDetails': tappuntData });
     myModal.present();
   }
-
 }

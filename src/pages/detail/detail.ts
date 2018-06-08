@@ -1,5 +1,8 @@
+// imported plugins
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, ViewController } from 'ionic-angular';
+
+// imported pipes
 import { SafePipe } from '../../pipes/safe-html/safe-html';
 
 @IonicPage()
@@ -9,6 +12,7 @@ import { SafePipe } from '../../pipes/safe-html/safe-html';
 })
 export class DetailPage {
 
+  // variables
   tappuntDetail: any;
   img = "data:image/jpeg;base64,/9j/"
 
@@ -16,7 +20,6 @@ export class DetailPage {
     public navCtrl: NavController,
     public params: NavParams,
     public viewCtrl: ViewController) {
-
     this.tappuntDetail = params.get('tappuntenDetails');
   }
 

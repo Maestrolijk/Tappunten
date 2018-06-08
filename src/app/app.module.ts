@@ -1,36 +1,34 @@
+// imported plugins
 import { BrowserModule } from '@angular/platform-browser';
 import { ErrorHandler, NgModule } from '@angular/core';
 import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { StatusBar } from '@ionic-native/status-bar';
 import { BarcodeScanner } from '@ionic-native/barcode-scanner';
-import { SafePipe } from '../pipes/safe-html/safe-html';
-import { Injectable } from '@angular/core';
-import { isEqual, differenceWith } from 'lodash';
 import { HttpModule } from '@angular/http';
 import { HttpClientModule } from '@angular/common/http';
 import { IonicStorageModule } from '@ionic/storage';
 
+// imported pages
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
 import { LoginPage } from '../pages/login/login';
-import { SentPage } from '../pages/sent/sent';
 import { DetailPage } from '../pages/detail/detail';
 import { GecontroleerdPage } from '../pages/gecontroleerd/gecontroleerd';
-import { TappuntenapiPage } from '../pages/tappuntenapi/tappuntenapi';
 
-
+// imported providers
 import { TappuntWeeklijstProvider } from '../providers/tappunt-weeklijst/tappunt-weeklijst';
+
+// imported pipes
+import { SafePipe } from '../pipes/safe-html/safe-html';
 
 @NgModule({
   declarations: [
     MyApp,
     HomePage,
     LoginPage,
-    SentPage,
     DetailPage,
     GecontroleerdPage,
-    TappuntenapiPage,
     SafePipe
   ],
   imports: [
@@ -48,9 +46,7 @@ import { TappuntWeeklijstProvider } from '../providers/tappunt-weeklijst/tappunt
     MyApp,
     HomePage,
     LoginPage,
-    SentPage,
     DetailPage,
-    TappuntenapiPage,
     GecontroleerdPage
   ],
   providers: [

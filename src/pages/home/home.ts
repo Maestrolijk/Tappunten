@@ -1,15 +1,18 @@
+// imported plugins
 import { Component } from '@angular/core';
 import { NavController, NavParams, ActionSheetController, ModalController } from 'ionic-angular';
 import { differenceWith } from 'lodash';
-import { TappuntWeeklijstProvider } from '../../providers/tappunt-weeklijst/tappunt-weeklijst';
 import { Storage } from '@ionic/storage';
 import * as moment from 'moment';
 import { ItemSliding, ToastController } from 'ionic-angular';
 import { BarcodeScanner, BarcodeScannerOptions } from '@ionic-native/barcode-scanner';
 
-import { SentPage } from '../sent/sent';
+// imported pages
 import { DetailPage } from '../detail/detail';
 import { GecontroleerdPage } from '../gecontroleerd/gecontroleerd';
+
+// imported providers
+import { TappuntWeeklijstProvider } from '../../providers/tappunt-weeklijst/tappunt-weeklijst';
 
 @Component({
   selector: 'page-home',
@@ -33,19 +36,17 @@ export class HomePage {
   options: BarcodeScannerOptions;
   scannedData :any={};
 
-    constructor(
-    public navCtrl: NavController,
-    public navParams: NavParams,
-    public actionSheetCtrl: ActionSheetController,
-    public modalCtrl: ModalController,
-    public scanner: BarcodeScanner,
-    private toastCtrl: ToastController,
-    public storage: Storage,
-    public tp: TappuntWeeklijstProvider) {
-
-    this.userloginname = navParams.get('loginname');
-    this.getWeekNumber();
-    
+  constructor(
+  public navCtrl: NavController,
+  public navParams: NavParams,
+  public actionSheetCtrl: ActionSheetController,
+  public modalCtrl: ModalController,
+  public scanner: BarcodeScanner,
+  private toastCtrl: ToastController,
+  public storage: Storage,
+  public tp: TappuntWeeklijstProvider) {
+  this.userloginname = navParams.get('loginname');
+  this.getWeekNumber();   
   }
 
   ionViewDidLoad() {

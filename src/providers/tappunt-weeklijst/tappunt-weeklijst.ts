@@ -1,3 +1,4 @@
+// imported plugins
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 
@@ -10,7 +11,8 @@ import { Injectable } from '@angular/core';
 @Injectable()
 export class TappuntWeeklijstProvider {
 
-  constructor(public http: HttpClient) {
+  constructor(
+    public http: HttpClient) {
   }
 
   private headNoOpt = new HttpHeaders({
@@ -41,8 +43,7 @@ export class TappuntWeeklijstProvider {
     return new Promise(resolve => { 
       let url: string = 'http://10.254.3.15/tapPunten/TapApi/weeklijst/del/' + autoID;
       //let url: string = 'http://dzapontw02.dz.local/tapPunten/TapApi/weeklijst/geurinkj'
-      //let url: string = 'http://localhost:54217/TapApi/weeklijst/del/' + autoID;
-                        
+      //let url: string = 'http://localhost:54217/TapApi/weeklijst/del/' + autoID;                
 
       // this.http.get(url,{headers: this.haders})
       this.http.delete(url,{headers: this.headNoOpt})
@@ -73,5 +74,4 @@ export class TappuntWeeklijstProvider {
         });
     });
   }
-
 }
