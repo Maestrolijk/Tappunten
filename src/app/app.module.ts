@@ -8,6 +8,7 @@ import { BarcodeScanner } from '@ionic-native/barcode-scanner';
 import { HttpModule } from '@angular/http';
 import { HttpClientModule } from '@angular/common/http';
 import { IonicStorageModule } from '@ionic/storage';
+import { Camera } from '@ionic-native/camera';
 
 // imported pages
 import { MyApp } from './app.component';
@@ -21,6 +22,7 @@ import { TappuntWeeklijstProvider } from '../providers/tappunt-weeklijst/tappunt
 
 // imported pipes
 import { SafePipe } from '../pipes/safe-html/safe-html';
+import { StorageProvider } from '../providers/storage/storage';
 
 @NgModule({
   declarations: [
@@ -52,9 +54,11 @@ import { SafePipe } from '../pipes/safe-html/safe-html';
   providers: [
     StatusBar,
     SplashScreen,
+    Camera, 
     BarcodeScanner,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     TappuntWeeklijstProvider,
+    StorageProvider,
   ]
 })
 export class AppModule {}

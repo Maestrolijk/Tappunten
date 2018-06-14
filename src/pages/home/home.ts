@@ -28,29 +28,29 @@ export class HomePage {
   tappunten: any;
   tappuntToDoCount: number;
   tappuntTotalCount: number;
-  tappuntenOriginal : any;
-  tappuntenFiltered : any;
-  notinCollection :any;
+  tappuntenOriginal: any;
+  tappuntenFiltered: any;
+  notinCollection: any;
 
   // barcode variables
   options: BarcodeScannerOptions;
-  scannedData :any={};
+  scannedData: any = {};
 
   constructor(
-  public navCtrl: NavController,
-  public navParams: NavParams,
-  public actionSheetCtrl: ActionSheetController,
-  public modalCtrl: ModalController,
-  public scanner: BarcodeScanner,
-  private toastCtrl: ToastController,
-  public storage: Storage,
-  public tp: TappuntWeeklijstProvider) {
-  this.userloginname = navParams.get('loginname');
-  this.getWeekNumber();   
+    public navCtrl: NavController,
+    public navParams: NavParams,
+    public actionSheetCtrl: ActionSheetController,
+    public modalCtrl: ModalController,
+    public scanner: BarcodeScanner,
+    private toastCtrl: ToastController,
+    public storage: Storage,
+    public tp: TappuntWeeklijstProvider) {
+    this.userloginname = navParams.get('loginname');
+    this.getWeekNumber();
   }
 
   ionViewDidLoad() {
-    this.getTapPunten();   
+    this.getTapPunten();
   }
 
   // get the current weeknumber
@@ -60,12 +60,12 @@ export class HomePage {
   }
 
   // show a new page with the tappunten that are already checked
-  doCheckedPage(){
-    this.navCtrl.push(GecontroleerdPage, {'tappuntenGecontroleerd': this.tappuntenFiltered});
+  doCheckedPage() {
+    this.navCtrl.push(GecontroleerdPage, { 'tappuntenGecontroleerd': this.tappuntenFiltered });
   }
 
   // open the detail page about the tappunt when user clicks on the tappunt
-  doTappuntDetail(tappuntData) {    
+  doTappuntDetail(tappuntData) {
     let myModal = this.modalCtrl.create(DetailPage, { 'tappuntenDetails': tappuntData });
     myModal.present();
   }
@@ -97,16 +97,16 @@ export class HomePage {
     };
     this.scanner.scan(this.options).then((data) => {
       this.scannedData = data;
-      this.notinCollection = this.tappunten.filter(i => i.tapPuntId == this.scannedData.text); 
+      this.notinCollection = this.tappunten.filter(i => i.tapPuntId == this.scannedData.text);
       if (this.notinCollection.length === 0) {
         this.expandAction(item, 'notappunt', 'Dit tappunt bestaat niet of is al gecontroleerd.');
       }
       else {
-      this.tp.setTapPuntGespoeld(item.tapPuntId);
-      this.tappunten = this.tappunten.filter(i => i.tappuntId != this.scannedData.text);
-      this.tappuntenFiltered = differenceWith(this.tappuntenOriginal, this.tappunten);
-      this.expandAction(item, 'checked', 'Tappunt is gecontroleerd.');
-      this.tappuntToDoCount = this.tappuntToDoCount + 1;
+        this.tp.setTapPuntGespoeld(item.tapPuntId);
+        this.tappunten = this.tappunten.filter(i => i.tappuntId != this.scannedData.text);
+        this.tappuntenFiltered = differenceWith(this.tappuntenOriginal, this.tappunten);
+        this.expandAction(item, 'checked', 'Tappunt is gecontroleerd.');
+        this.tappuntToDoCount = this.tappuntToDoCount + 1;
       }
     }, (err) => {
       console.log("Error: ", err);
@@ -116,9 +116,9 @@ export class HomePage {
   // this function gets the tappuntenlijst depending on the user that is logged in
   getTapPunten() {
     this.tp.getTapPunten(this.userloginname)
-      .then(data => { 
+      .then(data => {
         this.tappunten = data;
-        
+
         this.tappuntToDoCount = 0;
         this.tappuntTotalCount = this.tappunten.length;
         this.tappuntenOriginal = this.tappunten;

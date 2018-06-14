@@ -16,13 +16,13 @@ export class TappuntWeeklijstProvider {
   }
 
   private headNoOpt = new HttpHeaders({
-    'Content-Type' :  'text/plain'    
+    'Content-Type': 'text/plain'
   });
 
   // check if user is eligable to login
   userExists(gebruiker: string) {
 
-    return new Promise(resolve => {   
+    return new Promise(resolve => {
       let url: string = 'http://10.254.3.15/tapPunten/TapApi/weeklijst/naam/' + gebruiker;
       //let url: string = 'http://dzapontw02.dz.local/tapPunten/TapApi/weeklijst/naam/geurinkj'
       //let url: string = 'http://localhost:54217/TapApi/weeklijst/naam/' + gebruiker;
@@ -39,14 +39,14 @@ export class TappuntWeeklijstProvider {
   }
 
   // set specific tappunt [gespoeld = 1]
-  setTapPuntGespoeld(autoID: number){
-    return new Promise(resolve => { 
+  setTapPuntGespoeld(autoID: number) {
+    return new Promise(resolve => {
       let url: string = 'http://10.254.3.15/tapPunten/TapApi/weeklijst/del/' + autoID;
       //let url: string = 'http://dzapontw02.dz.local/tapPunten/TapApi/weeklijst/geurinkj'
       //let url: string = 'http://localhost:54217/TapApi/weeklijst/del/' + autoID;                
 
       // this.http.get(url,{headers: this.haders})
-      this.http.delete(url,{headers: this.headNoOpt})
+      this.http.delete(url, { headers: this.headNoOpt })
         .subscribe(data => {
           resolve(data);
         }, err => {
@@ -59,7 +59,7 @@ export class TappuntWeeklijstProvider {
   // get the tappuntenlijst from the database depending on the user that is logged in
   getTapPunten(gebruiker: string) {
 
-    return new Promise(resolve => {   
+    return new Promise(resolve => {
       let url: string = 'http://10.254.3.15/tapPunten/TapApi/weeklijst/' + gebruiker;
       //let url: string = 'http://dzapontw02.dz.local/tapPunten/TapApi/weeklijst/geurinkj'
       //let url: string = 'http://localhost:54217/TapApi/weeklijst/' + gebruiker;

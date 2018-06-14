@@ -9,8 +9,11 @@
       <p>{{tappuntDetail.omschrijving}}</p>
       
       <!-- <img src="data:image/jpg;base64,{{myParam.afbeelding}} | safeHtml"> -->
-      <img src="assets/imgs/tappunt-foto-detail.jpg">
+      <img src={{myphoto}}>
       <p>{{tappuntDetail.opmerkingen}}</p>
+      <div padding>
+        <button ion-button block (click)="takePhoto()" color="dz">Maak een foto</button>
+      </div>
     </ion-card-content>
   </ion-card>
 </ion-content>
