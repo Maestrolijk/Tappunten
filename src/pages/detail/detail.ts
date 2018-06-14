@@ -8,6 +8,7 @@ import { SafePipe } from '../../pipes/safe-html/safe-html';
 
 // imported providers
 import { StorageProvider } from '../../providers/storage/storage';
+import { TappuntWeeklijstProvider } from '../../providers/tappunt-weeklijst/tappunt-weeklijst';
 
 @IonicPage()
 @Component({
@@ -26,6 +27,7 @@ export class DetailPage {
     public params: NavParams,
     private camera: Camera,
     public storageProvider: StorageProvider,
+    public tp: TappuntWeeklijstProvider,
     public viewCtrl: ViewController) {
     this.tappuntDetail = params.get('tappuntenDetails');
   }
@@ -53,8 +55,8 @@ export class DetailPage {
       // imageData is either a base64 encoded string or a file URI
       // If it's base64:
       this.myphoto = 'data:image/jpeg;base64,' + imageData;
-      // write the picture to the local storage
-      this.storageProvider.setData("myphotostorage", this.myphoto);
+      // write the picture to tappunt
+      this.tp.setTapPuntPicture(this.tappuntDetail.tapPuntId);
     }, (err) => {
       // Handle error
     });

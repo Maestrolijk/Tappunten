@@ -39,9 +39,27 @@ export class TappuntWeeklijstProvider {
   }
 
   // set specific tappunt [gespoeld = 1]
-  setTapPuntGespoeld(autoID: number) {
+  setTapPuntGespoeld(tapPuntId: number) {
     return new Promise(resolve => {
-      let url: string = 'http://10.254.3.15/tapPunten/TapApi/weeklijst/del/' + autoID;
+      let url: string = 'http://10.254.3.15/tapPunten/TapApi/weeklijst/del/' + tapPuntId;
+      //let url: string = 'http://dzapontw02.dz.local/tapPunten/TapApi/weeklijst/geurinkj'
+      //let url: string = 'http://localhost:54217/TapApi/weeklijst/del/' + autoID;                
+
+      // this.http.get(url,{headers: this.haders})
+      this.http.delete(url, { headers: this.headNoOpt })
+        .subscribe(data => {
+          resolve(data);
+        }, err => {
+          console.log(err);
+        });
+    });
+
+  }
+
+  // upload picture of specific tappunt
+  setTapPuntPicture(tapPuntId: number) {
+    return new Promise(resolve => {
+      let url: string = 'http://10.254.3.15/tapPunten/TapApi/weeklijst/picture/' + tapPuntId;
       //let url: string = 'http://dzapontw02.dz.local/tapPunten/TapApi/weeklijst/geurinkj'
       //let url: string = 'http://localhost:54217/TapApi/weeklijst/del/' + autoID;                
 
