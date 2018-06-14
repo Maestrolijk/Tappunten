@@ -57,7 +57,7 @@ export class TappuntWeeklijstProvider {
   }
 
   // upload picture of specific tappunt
-  setTapPuntPicture(tapPuntId: number) {
+  setTapPuntPicture(tapPuntId: number, picture: string) {
     return new Promise(resolve => {
       let url: string = 'http://10.254.3.15/tapPunten/TapApi/weeklijst/picture/' + tapPuntId;
       //let url: string = 'http://dzapontw02.dz.local/tapPunten/TapApi/weeklijst/geurinkj'

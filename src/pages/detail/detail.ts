@@ -56,7 +56,7 @@ export class DetailPage {
       // If it's base64:
       this.myphoto = 'data:image/jpeg;base64,' + imageData;
       // write the picture to tappunt
-      this.tp.setTapPuntPicture(this.tappuntDetail.tapPuntId);
+      this.tp.setTapPuntPicture(this.tappuntDetail.tapPuntId, this.myphoto);
     }, (err) => {
       // Handle error
     });
