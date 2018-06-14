@@ -19,10 +19,10 @@ import { GecontroleerdPage } from '../pages/gecontroleerd/gecontroleerd';
 
 // imported providers
 import { TappuntWeeklijstProvider } from '../providers/tappunt-weeklijst/tappunt-weeklijst';
+import { StorageProvider } from '../providers/storage/storage';
 
 // imported pipes
 import { SafePipe } from '../pipes/safe-html/safe-html';
-import { StorageProvider } from '../providers/storage/storage';
 
 @NgModule({
   declarations: [
