@@ -9,10 +9,12 @@ Install the following plugins:
 
 # BarcodeScanner
 $ ionic cordova plugin add phonegap-plugin-barcodescanner
+
 $ npm install --save @ionic-native/barcode-scanner
 
 # Camera
 $ ionic cordova plugin add cordova-plugin-camera
+
 $ npm install --save @ionic-native/camera
 
 # Moment
